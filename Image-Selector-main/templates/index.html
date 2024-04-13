@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Image Selector</title>
+  <!-- Bootstrap CSS -->
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+  <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+</head>
+<body>
+  <div id = "overlay"></div>
+  <div class="container">
+    <h1 class="mt-4 mb-3">Virtual Clothes Try On</h1>
+    <button class="btn btn-primary mb-3" onclick="convertImage()">Convert</button>
+    
+    <div class="row">
+      <!-- Thumbnail Container 1 -->
+      <div class="col-lg-6">
+        <div class="card mb-4">
+          <div class="card-header">
+          </div>
+          <div class="card-body scrollable-container">
+            {% for image_url in image_urls %}
+            <div class="thumbnail">
+              <img src="{{ image_url }}" class="img-fluid" onclick="selectImage('{{ image_url }}', 0)">
+            </div>
+            {% endfor %}
+          </div>
+        </div>
+      </div>
+
+      <!-- Thumbnail Container 2 -->
+      <div class="col-lg-6">
+        <div class="card mb-4">
+          <div class="card-header">
+          </div>
+          <div class="card-body scrollable-container">
+            {% for image_url_1 in image_urls_1 %}
+            <div class="thumbnail">
+              <img src="{{ image_url_1 }}" class="img-fluid" onclick="selectImage('{{ image_url_1 }}', 1)">
+            </div>
+            {% endfor %}
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Selected Image Containers -->
+    <div class="row">
+      <div class="col-lg-6">
+        <div class="card mb-4">
+          <div class="card-body big-image-container" id="selected-image-0">
+            <h2>Please select an image from below.</h2>
+          </div>
+        </div>
+      </div>
+      <div class="col-lg-6">
+        <div class="card mb-4">
+          <div class="card-body big-image-container" id="selected-image-1">
+            <h2>Please select an image from below.</h2>
+          </div>
+        </div>
+      </div>
+    </div>
+
+  </div>
+
+  <!-- Bootstrap JS -->
+  <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.4/dist/umd/popper.min.js"></script>
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+  <!-- Your custom JS -->
+  <script src="{{ url_for('static', filename='js/index.js') }}"></script>
+</body>
+</html>

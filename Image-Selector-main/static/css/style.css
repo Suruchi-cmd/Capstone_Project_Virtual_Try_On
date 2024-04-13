@@ -1,0 +1,59 @@
+.main {
+  margin-top: 20px;
+  display: flex;
+  justify-content: space-around;
+}
+.container {
+  width: 100%;
+}
+.scrollable-container {
+  display: flex;
+  width: 95%;
+  height: 160px;
+  overflow-x: auto;
+  border: 1px solid black;
+  margin-bottom: 10px;
+  align-items: center;
+}
+.thumbnail {
+  flex: 0 0 auto; /* Don't allow flex items to grow or shrink */
+  width: 100px; /* Fixed width for each image */
+  height: auto; /* Automatically adjust height to maintain aspect ratio */
+  margin-right: 10px; /* Adjust as needed */
+}
+.thumbnail img {
+  width: 100%;
+  height: auto;
+}
+.big-image-container {
+  width: 90%;
+  /* height: 500px; */
+  border: 1px solid black;
+  /* overflow: hidden; */
+}
+.big-image {
+  display: block;
+  width: 100%;
+  height: auto;
+}
+
+body{
+  position: relative;
+}
+
+.overlay{
+  z-index: 100;
+  opacity: 50%;
+  overflow: hidden;
+  position:absolute;
+  top:0;
+  left:0;
+  background-color: grey;
+  height: 100vh;
+  width: 100vw;
+}
+
+.result_image{
+  max-height: 550px;
+
+}
